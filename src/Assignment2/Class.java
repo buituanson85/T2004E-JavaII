@@ -7,6 +7,7 @@ public class Class {
     int idClass;
     private String nameClass;
     private int ageClass;
+
     ArrayList<Student> studentArrayList;
     public Class() {
         studentArrayList = new ArrayList<>();

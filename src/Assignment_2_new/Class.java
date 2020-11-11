@@ -1,15 +1,16 @@
 package Assignment_2_new;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Class {
     int idClass;
     private String nameClass;
     private int ageClass;
-    ArrayList<Student> studentArrayList;
+    Map<Integer, Student> studentMap;
     public Class() {
-        studentArrayList = new ArrayList<>();
+        studentMap = new HashMap<>();
         idClass = 1;
     }
 
@@ -21,12 +22,13 @@ public class Class {
         return ageClass;
     }
 
-    public void setStudentArrayList(ArrayList<Student> studentArrayList) {
-        this.studentArrayList = studentArrayList;
+    public void setStudentArrayList(Map<Integer, Student> studentMap) {
+
+        this.studentMap = studentMap;
     }
 
     public void addStudent(Student student) {
-        studentArrayList.add(student);
+        studentMap.put(student.id, student);
     }
 
     public void input(){
@@ -65,14 +67,14 @@ public class Class {
         System.out.println(toString());
     }
     public void display(){
-        for (Student student : studentArrayList){
+        for (Student student : studentMap.values()){
             student.display();
         }
     }
 
     public void displayAge(int age){
         boolean findAge = false;
-        for (Student student : studentArrayList){
+        for (Student student : studentMap.values()){
             if (student.getAge() == age){
                 student.display();
                 findAge = true;

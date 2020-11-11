@@ -1,13 +1,15 @@
 package Assignment_2_new;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class MenuController {
-    ArrayList<Class> classArrayList = new ArrayList<>();
+    Map<Integer, Class> classMap = new HashMap<>();
     Class aClass = new Class();
     Scanner sc = new Scanner(System.in);
     int count = 0;
+    int countClass = 0;
 
     private static MenuController instance = null;
 
@@ -43,8 +45,10 @@ public class MenuController {
         aClass = new Class();
         System.out.println("===== Enter class =====");
         aClass.input();
-        aClass.idClass = classArrayList.size() +1;
-        classArrayList.add(aClass);
+        aClass.idClass = countClass + 1;
+        classMap.put(aClass.idClass, aClass);
+        countClass++;
+
         System.out.println("Enter the number of students to add to the class");
         int n;
 
@@ -90,8 +94,12 @@ public class MenuController {
                 sc = new Scanner(System.in);
             }
         }
-        for (int i = 0; i < classArrayList.size(); i++){
-            classArrayList.get(i).displayAge(_age);
+//        for (int i = 0; i < classArrayList.size(); i++){
+//            classArrayList.get(i).displayAge(_age);
+//        }
+
+        for (Class c : classMap.values()){
+            c.displayAge(_age);
         }
 //        aClass.displayAge(_age);
 //        boolean seachAge = false;
@@ -124,9 +132,16 @@ public class MenuController {
         }
 
         boolean seachIdClass = false;
-        for (int i = 0; i < classArrayList.size(); i++){
-            if (_id == classArrayList.get(i).getIdClass()){
-                classArrayList.get(i).display();
+//        for (int i = 0; i < classArrayList.size(); i++){
+//            if (_id == classArrayList.get(i).getIdClass()){
+//                classArrayList.get(i).display();
+//                seachIdClass = true;
+//            }
+//        }
+
+        for (Class c : classMap.values()){
+            if (_id == c.getIdClass()){
+                c.display();
                 seachIdClass = true;
             }
         }
@@ -153,9 +168,15 @@ public class MenuController {
         }
 
         boolean seachAgeClass = false;
-        for (int i = 0; i < classArrayList.size(); i++){
-            if (_ageClass == classArrayList.get(i).getAgeClass()){
-                classArrayList.get(i).display();
+//        for (int i = 0; i < classArrayList.size(); i++){
+//            if (_ageClass == classArrayList.get(i).getAgeClass()){
+//                classArrayList.get(i).display();
+//                seachAgeClass = true;
+//            }
+//        }
+        for (Class c : classMap.values()){
+            if (_ageClass == c.getAgeClass()){
+                c.display();
                 seachAgeClass = true;
             }
         }
@@ -166,8 +187,11 @@ public class MenuController {
 
     public void showBlock(){
                 System.out.println("==== Class List ====");
-        for (int i = 0; i < classArrayList.size(); i++){
-            classArrayList.get(i).show();
+//        for (int i = 0; i < classArrayList.size(); i++){
+//            classArrayList.get(i).show();
+//        }
+        for (Class c : classMap.values()){
+            c.show();
         }
     }
 

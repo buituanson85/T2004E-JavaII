@@ -7,7 +7,7 @@ public class MenuController {
     ArrayList<Class> classArrayList = new ArrayList<>();
     Class aClass = new Class();
     Scanner sc = new Scanner(System.in);
-    int count = 0;
+    int countStudent,countClass = 0;
 
     private static MenuController instance = null;
 
@@ -43,8 +43,10 @@ public class MenuController {
         aClass = new Class();
         System.out.println("===== Enter class =====");
         aClass.input();
-        aClass.idClass = classArrayList.size() +1;
+        aClass.idClass = countClass + 1;
+        countClass++;
         classArrayList.add(aClass);
+
         System.out.println("Enter the number of students to add to the class");
         int n;
 
@@ -63,13 +65,13 @@ public class MenuController {
 
         Student student;
         for (int i = 0; i< n; i++){
-            System.out.format("Enter the student number %d", count + 1);
+            System.out.format("Enter the student number %d", countStudent + 1);
             System.out.println(" ");
             student = new Student();
             student.input();
-            student.id = count + 1;
+            student.id = countStudent + 1;
+            countStudent++;
             aClass.addStudent(student);
-            count++;
         }
 
     }
