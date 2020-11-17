@@ -18,6 +18,10 @@ public class Class {
         return idClass;
     }
 
+    public String getNameClass() {
+        return nameClass;
+    }
+
     public int getAgeClass() {
         return ageClass;
     }
@@ -31,6 +35,7 @@ public class Class {
     }
 
     public void input(){
+        Class aClass = new Class();
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Enter name class: ");

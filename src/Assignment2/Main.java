@@ -27,6 +27,7 @@ public class Main {
                case 2 -> MenuController.getInstance().findAge();
                case 3 -> MenuController.getInstance().findIdClass();
                case 4 -> MenuController.getInstance().findAgeClass();
+               case 6 -> MenuController.getInstance().showAll();
                case 0 -> MenuController.getInstance().Exit();
                default -> System.out.println("Choosing the wrong");
            }

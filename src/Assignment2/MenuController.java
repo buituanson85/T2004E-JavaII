@@ -28,6 +28,7 @@ public class MenuController {
         System.out.println("3.Show students by class code");
         System.out.println("4.Show students by block");
         System.out.println("5.Show class by block");
+        System.out.println("6.Show student by school");
         System.out.println("0.Exit.");
         System.out.println("===================================");
         System.out.println("Choice: ");
@@ -64,7 +65,7 @@ public class MenuController {
         }
 
         Student student;
-        for (int i = 0; i< n; i++){
+        for (int i = 0; i < n; i++){
             System.out.format("Enter the student number %d", countStudent + 1);
             System.out.println(" ");
             student = new Student();
@@ -170,6 +171,13 @@ public class MenuController {
                 System.out.println("==== Class List ====");
         for (int i = 0; i < classArrayList.size(); i++){
             classArrayList.get(i).show();
+        }
+    }
+
+    public void showAll(){
+        System.out.println("==== Student List ====");
+        for (int i = 0; i < aClass.studentArrayList.size(); i++){
+            aClass.studentArrayList.get(i).display();
         }
     }
 
