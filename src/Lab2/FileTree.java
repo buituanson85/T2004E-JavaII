@@ -10,22 +10,31 @@ public class FileTree {
         for (int  i = 0; i < count; i++){
             spaces = spaces + " ";
         }
+        //kiem tra file co ton tai hay ko
+//        if (!file.exists()){
+//            System.out.println("File not exists");
+//            return;
+//        }
 
         if (file.isDirectory()){
             String[] ls = file.list();
-            for (int i = 0; i < ls.length; i++){
-                System.out.println(spaces + "Path: " + ls[i]);
-                File file1 = new File(spaces + "Path: " + ls[i]);
-                if (file1.isDirectory()){
-                    read(file1.getAbsolutePath(), count + 1);
+            for (File f : file.listFiles()){
+                if (f.isDirectory()){
+                    System.out.println(spaces + "+ folder: " + f.getName());
+                    spaces += " ";
+                    read(f.getAbsolutePath(),count + 1);
+                    spaces = spaces.substring(0, spaces.length() - 1);
+                }else {
+                    System.out.println(spaces + "- file: " + f.getName());
                 }
             }
         }else {
-            System.out.println(spaces + "Path: " + file.getName());
+            System.out.println(spaces + "file: " + file.getName());
         }
     }
     public static void main(String[] args) {
-        String current = System.getProperty("user.dir");
+//        String current = System.getProperty("user.dir");
+        String current = "D:\\T2004E-JavaII\\src";
         File file = new File(current);
         try {
             System.out.println(file.getCanonicalPath());
