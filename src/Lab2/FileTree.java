@@ -10,6 +10,7 @@ public class FileTree {
         for (int  i = 0; i < count; i++){
             spaces = spaces + " ";
         }
+
         //kiem tra file co ton tai hay ko
 //        if (!file.exists()){
 //            System.out.println("File not exists");
